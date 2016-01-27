@@ -4,7 +4,7 @@ module Panoramic
     include Singleton
 
     # this method is mandatory to implement a Resolver
-    def find_templates(name, prefix, partial, details)
+    def find_templates(name, prefix, partial, details, outside_app_allowed = false)
       return [] if @@resolver_options[:only] && !@@resolver_options[:only].include?(prefix)
 
       conditions = {
